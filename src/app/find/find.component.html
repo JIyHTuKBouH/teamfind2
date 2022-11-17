@@ -1,0 +1,24 @@
+<main>
+    <div id="content" class="bd-masthead mb-3 mt-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="mb-3 fw-semibold">Хочешь поиграть? Найди тимейта сейчас!</h1>
+        <p>
+          <button [disabled]="isInSearch" (click)="startSearch()" href="#" class="btn btn-primary col-4 mx-auto">Искать!!</button>
+        </p>
+        <div *ngIf="isInSearch" class="col-lg-6"> Поиск <div class="spinner-border"></div> </div>
+      </div>
+      <div class="card" *ngIf="foundPlayer" class="mx-auto" style="width: 18rem;" >
+        <video class="card-img-top" src="./assets/smile-rose.mp4" >
+        </video>
+        <div class="card-body">
+          <h5 class="card-title">Mimik</h5>
+          <p class="card-text">Люблю доту</p>
+          <a href="#" class="btn btn-primary">Написать</a>
+        </div>
+      </div>
+    </div>
+    <div>
+  
+    </div>
+  </main>
+  
