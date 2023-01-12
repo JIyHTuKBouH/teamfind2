@@ -9,6 +9,8 @@ import { RegisterComponent } from './register/register.component';
 import { TopPlayersComponent } from './top-players/top-players.component';
 import { FindComponent } from './find/find.component';
 import { CommonModule } from '@angular/common';
+import { ChatComponent } from './chat/chat.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,15 +19,18 @@ import { CommonModule } from '@angular/common';
     HomeComponent,
     RegisterComponent,
     TopPlayersComponent,
-    FindComponent
+    FindComponent,
+    ChatComponent
   ],
   imports: [
-    BrowserModule, CommonModule,  RouterModule.forRoot([
+    BrowserModule, CommonModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'top', component: TopPlayersComponent },
       { path: 'find', component: FindComponent },
-         { path: '', component: HomeComponent }
+      { path: 'chat', component: ChatComponent },
+
+      { path: '', component: HomeComponent }
     ])
   ],
   providers: [],

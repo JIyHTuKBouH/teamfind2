@@ -1,0 +1,64 @@
+<div class="container">
+	<div class="row no-gutters">
+	  <div class="col-md-4 border-right">
+		<div class="settings-tray">
+		  <img class="profile-image" src="https://i5.otzovik.com/2017/06/01/4969877/img/7811611.jpeg" alt="Profile img">
+
+		</div>
+		<!-- <div class="search-box">
+		  <div class="input-wrapper">
+			<i class="material-icons">search</i>
+			<input placeholder="Search here" type="text">
+		  </div>
+		</div> -->
+		<div *ngFor="let chat of chats;" (click)="setActiveChatId(chats.indexOf(chat))" class="friend-drawer friend-drawer--onhover">
+		  <img class="profile-image" [src]="chat.avaImg" alt="">
+		  <div class="text">
+			<h6>{{chat.user}}</h6>
+			<p class="text-muted">{{chat.messages[chat.messages.length - 1].text}}</p>
+		  </div>
+		  <span class="time text-muted small">13:21</span>
+		</div>
+		<hr>
+
+	  </div>
+	  <div class="col-md-8 chat">
+		<div class="settings-tray">
+			<div class="friend-drawer no-gutters friend-drawer--grey">
+			<img class="profile-image" [src]="chats[activeChatIndex].avaImg" alt="">
+			<div class="text">
+			  <h6>{{chats[activeChatIndex].user}}</h6>
+			</div>
+			
+		  </div>
+		</div>
+		<div class="chat-panel">
+		  <div *ngFor="let message of chats[activeChatIndex].messages;" class="row no-gutters" >
+			<div class="col-md-3">
+			  <div *ngIf="message.isReceived" class="chat-bubble chat-bubble--left">
+				{{message.text}}
+			  </div>
+			</div>
+			<div *ngIf="!message.isReceived" class="row no-gutters">
+				<div class="col-md-3 offset-md-9">
+				  <div class="chat-bubble chat-bubble--right">
+					{{message.text}}
+				  </div>
+				</div>
+			  </div>
+		  </div>
+		
+		</div>
+		<div class="row">
+			<div class="col-12">
+			  <div class="chat-box-tray">
+				<input type="text" placeholder="Type your message here..." [(ngModel)]="inputText">
+				<button (click)="send()">
+					Send
+				</button>
+			  </div>
+			</div>
+		  </div>
+	  </div>
+	</div>
+  </div>

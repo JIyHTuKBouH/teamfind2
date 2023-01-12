@@ -19,11 +19,11 @@
           </div>
 
           <div class="form-floating">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Steam" data-com.bitwarden.browser.user-edited="yes">
+            <input [(ngModel)]="steamAcount" type="text" class="form-control" id="floatingInput" placeholder="Steam" data-com.bitwarden.browser.user-edited="yes">
             <label for="floatingInput">Steam acc</label>
           </div>
 
-          <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+          <button class="w-100 btn btn-lg btn-primary" (click)="register()">Register</button>
           
 
           

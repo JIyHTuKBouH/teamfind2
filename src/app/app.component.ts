@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginInfo, LoginService } from './login.service';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  isLoggedIn = this.loginService.isLoggedIn;
+  loginInfo? : LoginInfo;
+  constructor(private loginService: LoginService) {
+    loginService.onLogIn().subscribe((x) => { this.isLoggedIn = x; this.loginInfo = loginService.loginInfo; });
+  }
+
+
   title = 'Pupa';
   collapse() {
     this.isExpanded = false;
